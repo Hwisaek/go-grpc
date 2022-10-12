@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package message;
+
+option go_package = "github.com/Hwisaek/go-grpc/message";
+
+service User {
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+  rpc GetMessage(GetMessagesRequest) returns (GetMessagesResponse);
+}
+
+message SendMessageRequest {
+  Message message = 1;
+}
+
+message SendMessageResponse {}
+
+message GetMessagesRequest{}
+
+message GetMessagesResponse {
+  repeated Message messages = 1;
+}
+
+message Message {
+  string name = 1;
+  string text = 2;
+}

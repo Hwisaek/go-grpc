@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-const portNumber = "9000"
+const portNumber = "19000"
 
 type messageServer struct {
 	message.UserServer

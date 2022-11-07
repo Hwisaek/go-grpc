@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # API 버전
+kind: Deployment # 오브젝트 종류
+metadata:
+  name: go-grpc # 파드의 이름
+  labels:
+    app: go-grpc
+spec:
+  replicas: 4 # 파드 복제 수
+  selector:
+    matchLabels:
+      app: go-grpc
+  template:
+    metadata:
+      labels:
+        app: go-grpc
+    spec:
+      containers:
+        - name: go-grpc
+          image: hwisaek/go-grpc:0.3 # 사용할 이미지

@@ -2,6 +2,7 @@ package chat
 
 import (
 	"context"
+	"time"
 
 	"github.com/Hwisaek/go-grpc/data"
 )
@@ -30,4 +31,24 @@ func (s *Service) GetMessage(ctx context.Context, req *GetMessagesRequest) (res 
 	}
 
 	return &GetMessagesResponse{Messages: messages}, nil
+}
+
+func (s *Service) GetMessageStream(req *GetMessagesRequest, stream Chat_GetMessageStreamServer) error {
+	messages := make([]*Message, len(data.MessageList))
+	for i, m := range data.MessageList {
+		messages[i] = &Message{
+			Name: m.Name,
+			Text: m.Text,
+		}
+	}
+	i := 0
+	for {
+		if i == 10 {
+			break
+		}
+		stream.Send(&GetMessagesResponse{Messages: messages})
+		time.Sleep(time.Second / 10)
+		i++
+	}
+	return nil
 }

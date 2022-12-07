@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chat;
 
-option go_package = "github.com/Hwisaek/go-grpc/chat";
+option go_package = "../chat";
 
 service Chat {
   rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);

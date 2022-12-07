@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package message;
+package chat;
 
-option go_package = "github.com/Hwisaek/go-grpc/message";
+option go_package = "github.com/Hwisaek/go-grpc/chat";
 
-service User {
+service Chat {
   rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
   rpc GetMessage(GetMessagesRequest) returns (GetMessagesResponse);
 }

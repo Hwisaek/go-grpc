@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/Hwisaek/go-grpc/user";
+
+service User {
+  rpc PostLogin(PostLoginRequest) returns (PostLoginResponse);
+}
+
+message PostLoginRequest {
+  string id = 1;
+  string pw = 2;
+}
+
+message PostLoginResponse {
+}

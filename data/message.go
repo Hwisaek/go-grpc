@@ -1,8 +1,8 @@
 package data
 
-import "github.com/Hwisaek/go-grpc/message"
+import "github.com/Hwisaek/go-grpc/chat"
 
-var Message = []*message.Message{
+var Message = []*chat.Message{
 	{
 		Name: "1",
 		Text: "text",

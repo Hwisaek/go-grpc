@@ -1,8 +1,11 @@
 package data
 
-import "github.com/Hwisaek/go-grpc/chat"
+type Message struct {
+	Name string
+	Text string
+}
 
-var Message = []*chat.Message{
+var MessageList = []Message{
 	{
 		Name: "1",
 		Text: "text",
